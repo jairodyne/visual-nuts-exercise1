@@ -12,22 +12,26 @@ public class PrintNumberService {
 	private static final int MAX_NUMBER = 100;
 
 
-	public void start(Integer finalNumber) {
-		finalNumber = validationNumber(finalNumber);
-		
-		for (int i = 1; i < finalNumber+1; i++) {
-			String str = getTextService.getText(i); 
-			System.out.println(str);
+	public void start(String finalNumber) {
+		Integer validFinalNumber = validationNumber(finalNumber);
+		for (int i = 1; i < validFinalNumber+1; i++) {
+			System.out.println(getTextService.getText(i));
 		}
 	}
 	
 	/**
-	 * Validation not specified about Messages, Exceptions, etc...
+	 * BTW : Validation not specified about Messages, Exceptions, etc...
 	 * @param number
 	 * @return
 	 */
-	private Integer validationNumber(Integer number) {
-		return number == null || number < 1 ? MAX_NUMBER : number;
+	private Integer validationNumber(String number) {
+		Integer intNumber = isNumeric(number) ? Integer.valueOf(number) : null;
+		return intNumber == null || intNumber < 1 ? MAX_NUMBER : intNumber;
 	}
+
+    private static boolean isNumeric(String str){
+        return str != null && str.matches("[0-9]+");
+    }
+	
 
 }
