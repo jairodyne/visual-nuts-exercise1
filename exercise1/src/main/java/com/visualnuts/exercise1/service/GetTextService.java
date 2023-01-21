@@ -3,24 +3,24 @@ package com.visualnuts.exercise1.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.visualnuts.exercise1.utils.Utils;
+import com.visualnuts.exercise1.utils.Exercise1Utils;
 
 @Component
 public class GetTextService {
 
 	@Autowired
-	private Utils utils;
+	private Exercise1Utils exercise1Utils;
 
 	public String getText(Integer number) {
-		if (utils.isDivisibleByBoth(number)) {
+		if (exercise1Utils.isDivisibleByBoth(number)) {
 			return "Visual Nuts";
 		}
 		
-		if (utils.isDivisibleBy5(number)) {
+		if (exercise1Utils.isDivisibleBy5(number)) {
 			return "Nuts";
 		}
 		
-		if (utils.isDivisibleBy3(number)) {
+		if (exercise1Utils.isDivisibleBy3(number)) {
 			return "Visual";
 		}
 

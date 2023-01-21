@@ -3,7 +3,7 @@ package com.visualnuts.exercise1.utils;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Utils {
+public class Exercise1Utils {
 	
 	public Boolean isDivisibleBy3 (Integer number) {
 		return number % 3 == 0 ? true : false;
