@@ -1,0 +1,22 @@
+package com.visualnuts.exercise1;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.visualnuts.exercise1.service.GetTextService;
+
+@SpringBootApplication
+public class Exercise1Application {
+
+	@Autowired
+	private GetTextService printText;
+	
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Exercise1Application.class, args);
+		
+		System.out.println("Iniciando ...");
+	}
+
+}
