@@ -27,5 +27,4 @@ public class NumberController {
 		printNumberService.start(maxValue);
 	}
 	
-	
 }
