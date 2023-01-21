@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.visualnuts.exercise1.utils.Exercise1Utils;
 
 @SpringBootTest
-class UtilsIntegrationTests {
+class UtilsIT {
 
 	@Autowired
 	private Exercise1Utils exercise1Utils;
@@ -70,7 +70,7 @@ class UtilsIntegrationTests {
 	}
 	
 	@Test
-	void mustFailDivisibleBy5_WhenNotMultipleOfBoth() {
+	void mustFailDivisibleByBoth_WhenNotMultipleOfBoth() {
 		Boolean result = null;
 		Integer numberDivisibleByBoth = 12;
 		
