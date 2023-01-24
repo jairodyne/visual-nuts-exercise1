@@ -17,12 +17,12 @@ public class Exercise2Application  {
 		 * BTW : The "JSON" data provided in the exercise 2 is "not valid".
 		 * But, fixing it ... here we go.
 		 */
-        List<Country> data = List.of(
-            new Country("US", List.of("en")),
-            new Country("BE", List.of("nl", "fr", "de")),
-            new Country("NL", List.of("nl", "fy")),
-            new Country("DE", List.of("de")),
-            new Country("ES", List.of("es"))
+        List<World> data = List.of(
+            new World("US", List.of("en")),
+            new World("BE", List.of("nl", "fr", "de")),
+            new World("NL", List.of("nl", "fy")),
+            new World("DE", List.of("de")),
+            new World("ES", List.of("es"))
         );
         
         // - returns the number of countries in the world
@@ -33,13 +33,13 @@ public class Exercise2Application  {
         String countryWithMostGermanLanguages = data.stream()
                 .filter(c -> c.getLanguages().contains("de"))
                 .max(Comparator.comparingInt(c -> c.getLanguages().size()))
-                .map(Country::getCountry)
+                .map(World::getCountry)
                 .orElse("none");
         System.out.println("The Country with the most official languages, where they officially speak German : " + countryWithMostGermanLanguages);
 
         // - that counts all official languages spoken in the listed countries
         Long totalLanguages = data.stream()
-                .map(Country::getLanguages)
+                .map(World::getLanguages)
                 .flatMap(List::stream)
                 .distinct()
                 .count();
@@ -48,13 +48,13 @@ public class Exercise2Application  {
         // - to find the country with the highest number of official languages
         String countryWithMostLanguages = data.stream()
                 .max(Comparator.comparingInt(c -> c.getLanguages().size()))
-                .map(Country::getCountry)
+                .map(World::getCountry)
                 .orElse("none");
         System.out.println("The Country with the highest number of official languages : " + countryWithMostLanguages);
 
         // - to find the most common official language(s) of all countries
         Map<String, Long> languageCounts = data.stream()
-                .map(Country::getLanguages)
+                .map(World::getLanguages)
                 .flatMap(List::stream)
                 .collect(Collectors.groupingBy(l -> l, Collectors.counting()));
         String mostCommonLanguages = languageCounts.entrySet().stream()
@@ -66,11 +66,11 @@ public class Exercise2Application  {
 	}
 
 	
-    static class Country {
+    static class World {
         private String country;
         private List<String> languages;
 
-        public Country(String country, List<String> languages) {
+        public World(String country, List<String> languages) {
             this.country = country;
             this.languages = languages;
         }
