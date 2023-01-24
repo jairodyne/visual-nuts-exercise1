@@ -12,15 +12,15 @@ public class GetTextService {
 	private Exercise1Utils exercise1Utils;
 
 	public String getText(Integer number) {
-		if (exercise1Utils.isDivisibleByBoth(number)) {
+		if (Boolean.TRUE.equals(exercise1Utils.isDivisibleByBoth(number))) {
 			return "Visual Nuts";
 		}
 		
-		if (exercise1Utils.isDivisibleBy5(number)) {
+		if (Boolean.TRUE.equals(exercise1Utils.isDivisibleBy5(number))) {
 			return "Nuts";
 		}
 		
-		if (exercise1Utils.isDivisibleBy3(number)) {
+		if (Boolean.TRUE.equals(exercise1Utils.isDivisibleBy3(number))) {
 			return "Visual";
 		}
 
